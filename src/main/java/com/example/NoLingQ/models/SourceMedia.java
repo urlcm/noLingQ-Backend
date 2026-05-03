@@ -16,7 +16,7 @@ public class SourceMedia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_source_media")
-    int idSourceMedia;
+    Integer idSourceMedia;
 
     @Column(name = "url_source")
     String urlSource;

@@ -13,7 +13,7 @@ public class DictionarySource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_dictionary")
-    int idDictionary;
+    Integer idDictionary;
 
     @Column(name = "name", nullable = false, length = 100)
     String name;

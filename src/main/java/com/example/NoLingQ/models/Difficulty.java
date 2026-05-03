@@ -15,11 +15,11 @@ public class Difficulty {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name = "id_difficulty")
-    public int idDifficulty;
+    Integer idDifficulty;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "difficulty_description")
-    public DifficultyLevel difficultyDescription;
+    DifficultyLevel difficultyDescription;
 
     public enum DifficultyLevel{
         IGNORE,
