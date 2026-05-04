@@ -12,6 +12,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Table(name = "words")
+/*crtl + shift + / (slash)*/
+//crtl + / (slash)
 public class Word {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
