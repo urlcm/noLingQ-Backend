@@ -1,6 +1,7 @@
 package com.example.NoLingQ.controller;
 
 import com.example.NoLingQ.services.Text.ReadTextService;
+import com.example.NoLingQ.util.SlashReplaceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,14 @@ public class TextController {
     private ReadTextService readTextService;
 
     @GetMapping("/extract-text")
-    public String getText(@RequestParam("path") String path){        String text = this.readTextService.ExtractText(path);
+    public String getText(@RequestParam("path") String path){
+        String text = this.readTextService.ExtractText(path);
         return text;
+    }
+
+    @GetMapping("/replace")
+    public String replace(@RequestParam("r") String r){
+
+        return SlashReplaceUtil.slashReplace(r);
     }
 }

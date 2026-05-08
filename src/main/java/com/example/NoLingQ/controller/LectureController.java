@@ -9,4 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(value = "http://localhost:4200")
 public class LectureController {
 
+
+
 }
