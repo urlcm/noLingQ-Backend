@@ -11,8 +11,13 @@ public class LectureService implements ILectureService{
     private LectureRespository lectureRespository;
 
     @Override
-    public boolean saveLecture(Lecture lecture) {
+    public Lecture saveLecture(Lecture lecture) {
         this.lectureRespository.save(lecture);
-        return true;
+        return lecture;
+    }
+
+    @Override
+    public Lecture FindLectureById(int id) {
+        return this.lectureRespository.findById(id).orElse(null);
     }
 }

@@ -20,7 +20,6 @@ public class TextController {
 
     @GetMapping("/replace")
     public String replace(@RequestParam("r") String r){
-
         return SlashReplaceUtil.slashReplace(r);
     }
 }
