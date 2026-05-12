@@ -12,7 +12,7 @@ public class LectureController {
     @Autowired
     private LectureService lectureService;
 
-    @PostMapping("/save-lecture")
+    @PostMapping("/lecture/save")
     public Lecture SaveLecture(@RequestBody Lecture lecture){
         return lectureService.saveLecture(lecture);
     }

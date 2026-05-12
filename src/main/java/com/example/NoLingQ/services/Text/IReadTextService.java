@@ -2,5 +2,5 @@ package com.example.NoLingQ.services.Text;
 
 public interface IReadTextService {
 
-    String ExtractText(String path);
+    String ExtractText(String path, int page);
 }

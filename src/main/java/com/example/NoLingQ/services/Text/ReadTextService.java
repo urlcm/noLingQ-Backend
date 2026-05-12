@@ -13,11 +13,11 @@ import java.io.IOException;
 public class ReadTextService implements IReadTextService {
 
     @Override
-    public String ExtractText(String path) {
+    public String ExtractText(String path, int page) {
         try (PDDocument document = Loader.loadPDF(new RandomAccessReadBufferedFile(path))){
             PDFTextStripper stripper = new PDFTextStripper();
-            stripper.setStartPage(5);
-            stripper.setEndPage(6);
+            stripper.setStartPage(page);
+            stripper.setEndPage(page+1);
             String partialText = stripper.getText(document);
             return partialText;
         } catch (IOException e) {

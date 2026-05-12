@@ -13,8 +13,8 @@ public class TextController {
     private ReadTextService readTextService;
 
     @GetMapping("/extract-text")
-    public String getText(@RequestParam("path") String path){
-        String text = this.readTextService.ExtractText(path);
+    public String getText(@RequestParam("path") String path, @RequestParam("page") Integer page){
+        String text = this.readTextService.ExtractText(path,page);
         return text;
     }
 
