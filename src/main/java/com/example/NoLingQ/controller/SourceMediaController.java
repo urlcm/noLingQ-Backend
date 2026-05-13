@@ -13,7 +13,7 @@ public class SourceMediaController {
     @Autowired
     private SourceMediaService sourceMediaService;
 
-    @PostMapping("/source-media-controller/save")
+    @PostMapping("/save")
     public int SaveSourceMedia(@RequestBody SourceMedia sourceMedia){
         return this.sourceMediaService.SaveSourceMedia(sourceMedia);
     }

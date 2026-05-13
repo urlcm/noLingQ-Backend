@@ -11,7 +11,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table(name = "words")
+@Table(name = "words", indexes = {
+        @Index(name = "Iword", columnList = "word")
+})
 /*crtl + shift + / (slash)*/
 //crtl + / (slash)
 public class Word {
@@ -22,6 +24,12 @@ public class Word {
 
     @Column(name = "word", length = 100)
     String word;
+
+    @Column(name = "definition",length = 200)
+    String definition;
+
+    @Column(name = "image",length = 200)
+    String image;
 
     @ManyToOne
     @JoinColumn(name = "id_difficulty_fk")

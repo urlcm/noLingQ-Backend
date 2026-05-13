@@ -21,11 +21,15 @@ public class Lecture {
     @Column(name = "name" ,length = 150, nullable = false)
     String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_source_lecture_fk")
     SourceLecture sourceLecture;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_source_media_fk")
     SourceMedia sourceMedia;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_dictionary_fk")
+    DictionarySource dictionarySource;
 }

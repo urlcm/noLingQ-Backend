@@ -12,7 +12,7 @@ public class SourceLectureController {
     @Autowired
     private SourceLecturesService sourceLecturesService;
 
-    @PostMapping("/source-lecture/save")
+    @PostMapping("/save")
     public int SaveSourceLecture(@RequestBody SourceLecture sourceLecture){
         return this.sourceLecturesService.SaveSourceLecture(sourceLecture);
     }
