@@ -5,6 +5,8 @@ import com.example.NoLingQ.services.Lecture.LectureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("lecture-controller")
 @CrossOrigin(value = "http://localhost:4200")
@@ -14,6 +16,11 @@ public class LectureController {
 
     @PostMapping("/save")
     public Lecture SaveLecture(@RequestBody Lecture lecture){
-        return lectureService.saveLecture(lecture);
+        return this.lectureService.saveLecture(lecture);
+    }
+
+    @GetMapping("/get-lectures")
+    public List<Lecture> GetLectures(){
+        return this.lectureService.GetLectures();
     }
 }

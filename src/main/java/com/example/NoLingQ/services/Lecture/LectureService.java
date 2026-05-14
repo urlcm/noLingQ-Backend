@@ -5,6 +5,8 @@ import com.example.NoLingQ.repository.LectureRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LectureService implements ILectureService{
     @Autowired
@@ -20,4 +22,11 @@ public class LectureService implements ILectureService{
     public Lecture FindLectureById(int id) {
         return this.lectureRespository.findById(id).orElse(null);
     }
+
+    @Override
+    public List<Lecture> GetLectures() {
+        return this.lectureRespository.findAll();
+    }
+
+
 }
