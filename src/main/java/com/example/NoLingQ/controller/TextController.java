@@ -14,6 +14,7 @@ public class TextController {
 
     @GetMapping("/extract-text")
     public String getText(@RequestParam("path") String path, @RequestParam("page") Integer page){
+        path = SlashReplaceUtil.slashReplace(path);
         String text = this.readTextService.ExtractText(path,page);
         return text;
     }
