@@ -22,7 +22,7 @@ public class DictionaryController {
     }
 
     @GetMapping("/get-dictionary/{id}")
-    public DictionarySource GetDictionaryById(@RequestParam("id") Integer id){
+    public DictionarySource GetDictionaryById(@PathVariable Integer id){
         return this.dictionaryService.GetDictionaryById(id);
     }
 

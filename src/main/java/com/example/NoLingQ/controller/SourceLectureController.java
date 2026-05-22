@@ -17,5 +17,10 @@ public class SourceLectureController {
         return this.sourceLecturesService.SaveSourceLecture(sourceLecture);
     }
 
+    @GetMapping("/get-lecture/{id}")
+    public SourceLecture GetSourceLectureById(@PathVariable int id){
+        return this.sourceLecturesService.findSourceLectureById(id);
+    }
+
 
 }
