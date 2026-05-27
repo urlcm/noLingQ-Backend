@@ -19,4 +19,9 @@ public class WordService implements IWordService{
     public Word SaveWord(Word word) {
         return this.wordRepository.save(word);
     }
+
+    @Override
+    public Word FindByWord(String word) {
+        return this.wordRepository.findByWord(word).orElse(null);
+    }
 }

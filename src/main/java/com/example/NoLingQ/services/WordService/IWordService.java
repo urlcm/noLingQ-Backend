@@ -6,4 +6,6 @@ public interface IWordService{
     Word findById(Integer id);
 
     Word SaveWord(Word word);
+
+    Word FindByWord(String word);
 }
