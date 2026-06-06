@@ -18,4 +18,9 @@ public class ProgressService implements IProgressService{
     public Progress GetProgressByLecture(int id) {
         return this.progressRepository.findByLecture(id);
     }
+
+    @Override
+    public Progress saveProgress(Progress progress) {
+        return this.progressRepository.save(progress);
+    }
 }

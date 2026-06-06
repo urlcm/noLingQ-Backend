@@ -6,4 +6,6 @@ public interface IProgressService {
     Progress GetProgressById(int id);
 
     Progress GetProgressByLecture(int id);
+
+    Progress saveProgress(Progress progress);
 }
