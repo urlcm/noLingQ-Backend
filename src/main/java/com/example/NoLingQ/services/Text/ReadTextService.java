@@ -17,7 +17,7 @@ public class ReadTextService implements IReadTextService {
         try (PDDocument document = Loader.loadPDF(new RandomAccessReadBufferedFile(path))){
             PDFTextStripper stripper = new PDFTextStripper();
             stripper.setStartPage(page);
-            stripper.setEndPage(page+1);
+            stripper.setEndPage(page);
             String partialText = stripper.getText(document);
             return partialText;
         } catch (IOException e) {
