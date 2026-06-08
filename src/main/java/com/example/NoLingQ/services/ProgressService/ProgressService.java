@@ -1,9 +1,12 @@
 package com.example.NoLingQ.services.ProgressService;
 
+import com.example.NoLingQ.models.Lecture;
 import com.example.NoLingQ.models.Progress;
 import com.example.NoLingQ.repository.IProgressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ProgressService implements IProgressService{
 
     @Autowired
@@ -15,8 +18,8 @@ public class ProgressService implements IProgressService{
     }
 
     @Override
-    public Progress GetProgressByLecture(int id) {
-        return this.progressRepository.findByLecture(id);
+    public Progress GetProgressByLecture(Lecture lecture) {
+        return this.progressRepository.findByLecture(lecture);
     }
 
     @Override

@@ -15,7 +15,7 @@ import lombok.ToString;
 public class Progress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "progress")
+    @Column(name = "id_progress")
     Integer idProgress;
 
     @OneToOne

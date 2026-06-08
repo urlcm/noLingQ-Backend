@@ -1,5 +1,6 @@
 package com.example.NoLingQ.controller;
 
+import com.example.NoLingQ.models.Lecture;
 import com.example.NoLingQ.models.Progress;
 import com.example.NoLingQ.services.ProgressService.ProgressService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,9 @@ public class ProgressController {
 
     @GetMapping("/get-progress-by-lecture/{id}")
     public Progress getProgressByLecture(@PathVariable int id) {
-        return this.progressService.GetProgressByLecture(id);
+        Lecture lecture = new Lecture();
+        lecture.setIdLecture(id);
+        return this.progressService.GetProgressByLecture(lecture);
     }
 
     @PostMapping("/save")
