@@ -13,20 +13,27 @@ public class WordController {
     private WordService wordService;
 
     @GetMapping("/by-word/{word}")
-    public Word getWordByWord(@PathVariable("word") String word){
+    public Word getWordByWord(@PathVariable String word){
         return this.wordService.FindByWord(word);
     }
 
     @GetMapping("/by-id/{id}")
-    public Word getWordById(@PathVariable("id") int id){
+    public Word getWordById(@PathVariable int id){
         return this.wordService.findById(id);
     }
 
     @PostMapping("/save")
-    public Word saveWord(@RequestParam Word word){
+    public Word saveWord(@RequestBody Word word){
         return this.wordService.SaveWord(word);
     }
 
 
+    @PutMapping("/update")
+    public Word updateWord(@RequestBody Word word){
+        if(word.getIdWord() == -1)
+            word.setIdWord(null);
+
+        return this.wordService.SaveWord(word);
+    }
 
 }

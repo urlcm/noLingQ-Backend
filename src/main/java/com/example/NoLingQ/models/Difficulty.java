@@ -18,16 +18,15 @@ public class Difficulty {
     Integer idDifficulty;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "difficulty_description")
-    DifficultyLevel difficultyDescription;
+    @Column(name = "description")
+    DifficultyLevel description;
 
     public enum DifficultyLevel{
         IGNORE,
         NEW,
         SEEN,
-        RECONIZED,
-        RECONIZED_2,
-        RECOGNIZED_3,
+        RECOGNIZED,
+        VERY_RECOGNIZED,
         LEARNED
     }
 }

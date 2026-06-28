@@ -24,4 +24,6 @@ public class WordService implements IWordService{
     public Word FindByWord(String word) {
         return this.wordRepository.findByWord(word).orElse(null);
     }
+
+
 }
