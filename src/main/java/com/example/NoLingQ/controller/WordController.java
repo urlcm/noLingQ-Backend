@@ -24,15 +24,15 @@ public class WordController {
 
     @PostMapping("/save")
     public Word saveWord(@RequestBody Word word){
+        if(word.getIdWord() == -1)
+            word.setIdWord(null);
+
         return this.wordService.SaveWord(word);
     }
 
 
     @PutMapping("/update")
     public Word updateWord(@RequestBody Word word){
-        if(word.getIdWord() == -1)
-            word.setIdWord(null);
-
         return this.wordService.SaveWord(word);
     }
 
