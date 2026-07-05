@@ -1,6 +1,8 @@
 package com.example.NoLingQ.controller;
 
+import com.example.NoLingQ.models.Difficulty;
 import com.example.NoLingQ.models.Word;
+import com.example.NoLingQ.services.DifficultyService.DifficultyService;
 import com.example.NoLingQ.services.WordService.WordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 public class WordController {
     @Autowired
     private WordService wordService;
+
+    @Autowired
+    private DifficultyService difficultyService;
 
     @GetMapping("/by-word/{word}")
     public Word getWordByWord(@PathVariable String word){
@@ -26,6 +31,12 @@ public class WordController {
     public Word saveWord(@RequestBody Word word){
         if(word.getIdWord() == -1)
             word.setIdWord(null);
+
+        if(word.getDifficulty().getIdDifficulty() != null)
+        {
+            Difficulty difficulty = this.difficultyService.getDifficulty(word.getDifficulty().getIdDifficulty());
+            word.setDifficulty(difficulty);
+        }
 
         return this.wordService.SaveWord(word);
     }
