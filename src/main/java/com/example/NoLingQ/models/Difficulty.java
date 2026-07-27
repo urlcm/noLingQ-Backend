@@ -27,6 +27,8 @@ public class Difficulty {
         SEEN,
         RECOGNIZED,
         VERY_RECOGNIZED,
-        LEARNED
+        VERY_RECOGNIZED_2,
+        LEARNED,
+        CHECK
     }
 }
