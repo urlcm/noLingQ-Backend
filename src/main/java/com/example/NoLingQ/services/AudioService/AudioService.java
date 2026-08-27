@@ -11,11 +11,9 @@ import java.nio.file.Paths;
 @Service
 public class AudioService implements IAudioService{
 
-    @Value("${audio.path}")
-    private String audioPath;
     @Override
     public Resource getAudio(String name) {
-        Path filePath = Paths.get(audioPath).resolve(name);
+        Path filePath = Paths.get(name);
         Resource resource = new FileSystemResource(filePath);
 
         if(!resource.exists())

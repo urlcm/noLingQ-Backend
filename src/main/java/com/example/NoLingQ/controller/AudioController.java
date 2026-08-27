@@ -15,9 +15,9 @@ public class AudioController {
     @Autowired
     private AudioService audioService;
 
-    @GetMapping("/get-audio/{name}")
-    public ResponseEntity<Resource> getAudio(@PathVariable String name){
-        Resource audio = audioService.getAudio(name);
+    @GetMapping("/get-audio")
+    public ResponseEntity<Resource> getAudio(@RequestParam("path") String path){
+        Resource audio = audioService.getAudio(path);
 
         if(audio == null || !audio.exists()){
             return ResponseEntity.notFound().build();
