@@ -14,7 +14,7 @@ public class SourceMediaController {
     private SourceMediaService sourceMediaService;
 
     @PostMapping("/save")
-    public int SaveSourceMedia(@RequestBody SourceMedia sourceMedia){
+    public SourceMedia SaveSourceMedia(@RequestBody SourceMedia sourceMedia){
         return this.sourceMediaService.SaveSourceMedia(sourceMedia);
     }
 }

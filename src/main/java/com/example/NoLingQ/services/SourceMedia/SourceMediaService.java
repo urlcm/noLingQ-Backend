@@ -12,9 +12,9 @@ public class SourceMediaService implements ISourceMediaService{
     public ISourceMediaRepository sourceMediaRepository;
 
     @Override
-    public int SaveSourceMedia(SourceMedia sourceMedia) {
+    public SourceMedia SaveSourceMedia(SourceMedia sourceMedia) {
         this.sourceMediaRepository.save(sourceMedia);
-        return sourceMedia.getIdSourceMedia();
+        return sourceMedia;
     }
 
     @Override
