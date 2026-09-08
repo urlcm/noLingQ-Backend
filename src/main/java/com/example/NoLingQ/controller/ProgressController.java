@@ -29,4 +29,14 @@ public class ProgressController {
     public Progress saveProgress(@RequestBody Progress progress){
         return this.progressService.saveProgress(progress);
     }
+
+    @PutMapping("/update-current-time")
+    public Long setCurrentTime(@RequestBody Progress progress){
+        return this.progressService.updateCurrentTimeSecs(progress);
+    }
+
+    @PutMapping("/update-current-page")
+    public int setCurrentPage(@RequestBody Progress progress){
+        return this.progressService.updateCurrentPage(progress);
+    }
 }
