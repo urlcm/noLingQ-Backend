@@ -16,7 +16,7 @@ public class SourceLecture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_source_lecture")
-    Integer IdSourceLecture;
+    Integer idSourceLecture;
 
     @Column(name = "url_source", length = 150)
     String urlSource;
