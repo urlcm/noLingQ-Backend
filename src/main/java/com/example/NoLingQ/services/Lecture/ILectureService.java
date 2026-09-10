@@ -10,4 +10,8 @@ public interface ILectureService {
     public Lecture FindLectureById(int id);
 
     public List<Lecture> GetLectures();
+
+    void deleteById(int id);
+
+    Lecture updateLecture(Lecture lecture);
 }
