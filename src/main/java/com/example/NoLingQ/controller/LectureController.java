@@ -22,8 +22,24 @@ public class LectureController {
         return this.lectureService.saveLecture(lecture);
     }
 
+    @GetMapping("/get-lecture/{id}")
+    public Lecture getLectureById(@PathVariable int id)
+    {
+        return this.lectureService.FindLectureById(id);
+    }
+
     @GetMapping("/get-lectures")
     public List<Lecture> GetLectures(){
         return this.lectureService.GetLectures();
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable int id){
+        this.lectureService.deleteById(id);
+    }
+
+    @PutMapping("/update")
+    public Lecture updateLecture(@RequestBody Lecture lecture){
+        return this.lectureService.updateLecture(lecture);
     }
 }
