@@ -21,12 +21,12 @@ public class Lecture {
     @Column(name = "name" ,length = 150, nullable = false)
     String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_source_lecture_fk")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "id_source_lecture_fk", unique = true)
     SourceLecture sourceLecture;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_source_media_fk")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "id_source_media_fk", unique = true)
     SourceMedia sourceMedia;
 
     @ManyToOne(fetch = FetchType.LAZY)
