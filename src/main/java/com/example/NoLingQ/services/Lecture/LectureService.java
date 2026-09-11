@@ -1,13 +1,17 @@
 package com.example.NoLingQ.services.Lecture;
 
 import com.example.NoLingQ.models.Lecture;
+import com.example.NoLingQ.models.Progress;
 import com.example.NoLingQ.models.SourceLecture;
 import com.example.NoLingQ.models.SourceMedia;
+import com.example.NoLingQ.repository.IProgressRepository;
 import com.example.NoLingQ.repository.ISourceLectureRepository;
 import com.example.NoLingQ.repository.ISourceMediaRepository;
 import com.example.NoLingQ.repository.LectureRespository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +25,9 @@ public class LectureService implements ILectureService{
 
     @Autowired
     private ISourceLectureRepository sourceLectureRepository;
+
+    @Autowired
+    private IProgressRepository progressRepository;
 
     @Override
     public Lecture saveLecture(Lecture lecture) {
@@ -55,7 +62,18 @@ public class LectureService implements ILectureService{
     }
 
     @Override
+    @Transactional
     public void deleteById(int id) {
+        System.out.println("El id que llega es "+id);
+        Lecture lecture = lectureRespository.findById(id).
+                orElseThrow(() -> new EntityNotFoundException("Lecture no encontrado"));
+
+        Progress progress = progressRepository.findByLecture(lecture);
+        System.out.println("Progress es: "+progress );
+        if(progress != null){
+            progressRepository.deleteById(progress.getIdProgress());
+            System.out.println("Se borra progresss");
+        }
         this.lectureRespository.deleteById(id);
     }
 
