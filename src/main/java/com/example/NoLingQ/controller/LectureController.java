@@ -17,7 +17,6 @@ public class LectureController {
 
     @PostMapping("/save")
     public Lecture SaveLecture(@RequestBody Lecture lecture){
-
         System.out.println("Lecture raw: " + lecture);
         return this.lectureService.saveLecture(lecture);
     }
